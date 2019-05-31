@@ -1,0 +1,11 @@
+Path from which files should be pushed: /home/supriyo/work/testyard/testyard/services/lib/baseini
+
+=========================================
+Friday, May 31, 2019, 23:45 HRS.
+-----------------------------------------
+1. git add liteini.c
+2. git add liteini.h
+3. git add files_to_commit.txt
+
+=========================================
+
