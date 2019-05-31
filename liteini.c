@@ -1,3 +1,6 @@
+/*
+Compile Command: gcc libini.c -o libini
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
