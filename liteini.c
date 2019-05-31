@@ -7,6 +7,17 @@ Compile Command: gcc libini.c -o libini
 #include "liteini.h"
 
 
+int _is_empty_string(char *str){
+    int slen = strlen(str);
+    int isempty = 0; /* 0 means it is not empty */
+    int i;
+    for(i=0; i < slen; i++){
+        if(str[i] != ' ' && str[i] != '\0' && str[i] != '\n'){
+	    return(isempty);
+        }
+    }
+    return(1); /* This is an empty string */
+}
 
 
 section *get_sections(char *filepath){
@@ -30,7 +41,7 @@ section *get_sections(char *filepath){
 		char *key, *value;
 		key = (char *)malloc((LINE_LEN/2 -1) * sizeof(char));
 		value = (char *)malloc((LINE_LEN/2 -1) * sizeof(char));
-        if(line[0] == '[' && line[strlen(line) - 2] == ']'){ /* This is a fucking section. */
+        	if(line[0] == '[' && line[strlen(line) - 2] == ']'){ /* This is a fucking section. */
 		    char *section_name;
 			int line_len = strlen(line);
 			section_name = (char *)malloc((line_len-1)*sizeof(char));
@@ -38,7 +49,7 @@ section *get_sections(char *filepath){
 			for (i=1;i < line_len - 2;i++){
 			    section_name[i-1] = line[i];
 			}
-		    section_name[i] = '\0';
+		    	section_name[i] = '\0';
 			sections_list[sect_ctr].sect_name = (char *)malloc(LINE_LEN*sizeof(char));
 			strcpy(sections_list[sect_ctr].sect_name, section_name);
 			
@@ -81,8 +92,8 @@ section *get_sections(char *filepath){
 		}
 
 		 sections_list[sect_ctr].sect = (section_content *)malloc(5000*sizeof(section_content));
-       /*
-	    *(sections_list[sect_ctr].sect->keys + kcntr) = (char *)malloc((LINE_LEN/2 -1) * sizeof(char));
+       		/*
+	    	*(sections_list[sect_ctr].sect->keys + kcntr) = (char *)malloc((LINE_LEN/2 -1) * sizeof(char));
 		*(sections_list[sect_ctr].sect->values + vcntr) = (char *)malloc((LINE_LEN/2 -1) * sizeof(char));
 		*/
 		(sections_list[sect_ctr].sect)->keys[kcntr] = (char *)malloc((LINE_LEN/2) * sizeof(char));
@@ -94,6 +105,9 @@ section *get_sections(char *filepath){
 		    strcpy((sections_list[sect_ctr].sect)->section_name, sections_list[sect_ctr].sect_name);
 			printf("SECTION NAME: %s\n", sections_list[sect_ctr].sect_name);
 		    done = 1;
+		}
+		if(_is_empty_string((sections_list[sect_ctr].sect)->keys[kcntr]) && _is_empty_string((sections_list[sect_ctr].sect)->values[vcntr])){
+		    continue;
 		}
 		printf("SECTION LIST NAME: %s\n", (sections_list[sect_ctr].sect)->section_name);
 		printf("KEY= %s\n", (sections_list[sect_ctr].sect)->keys[kcntr]);
@@ -108,11 +122,12 @@ section *get_sections(char *filepath){
 	return(sections_list);
 }
 
+/* This code should actually be written by the user. I wrote it here to just test the library */
 int main(){
 	char *file;
 	section * s;
 	file = (char *)malloc(80*sizeof(char));
-	strcpy(file,"./test.ini");
+	strcpy(file,"./examples/test.ini");
 	s = get_sections(file);
 }
 
