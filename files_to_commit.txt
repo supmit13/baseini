@@ -8,4 +8,11 @@ Friday, May 31, 2019, 23:45 HRS.
 3. git add files_to_commit.txt
 
 =========================================
+Friday, June 04, 2019, 02:2o HRS.
+-----------------------------------------
+1. git add liteini.c
+2. git add liteini.h
+3. git add files_to_commit.txt
+
+=========================================
 
