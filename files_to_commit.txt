@@ -29,11 +29,22 @@ Tuesday, June 04, 2019, 11:38 HRS.
 3. git add files_to_commit.txt
 
 =========================================
-Tuesday, June 05, 2019, 00:19 HRS.
+Wednesday, June 05, 2019, 00:19 HRS.
 -----------------------------------------
 1. git add liteini.c
 2. git add liteini.h
 3. git add files_to_commit.txt
+
+=========================================
+Thursday, June 06, 2019, 01:00 HRS.
+-----------------------------------------
+1. git add liteini.c
+2. git add liteini.h
+3. git add samples/main.c
+4. git add examples/test.ini
+5. git add files_to_commit.txt
+
+=========================================
 
 =========================================
 
